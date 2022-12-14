@@ -1,0 +1,123 @@
+﻿@model DOPRAVY.Models.Cliente
+
+@{
+    ViewBag.Title = "registroCli";
+}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="~/Content/images/icon.ico" rel="icon">
+    <title>DOPRAVY | Registrarse</title>
+    <link rel='stylesheet' href='../../../css?family=Poppins:100,200,300,400,500,600,700,800,900' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/stylesheet.css">
+    <link id="color-switcher" type="text/css" rel="stylesheet" href="#">
+</head>
+<body>
+
+    <div id="main-wrapper" class="oxyy-login-register">
+        <div class="container-fluid px-0">
+            <div class="row g-0 min-vh-100">
+
+                <!-- Eslogan-->
+                <div class="col-md-6 col-lg-7 bg-light">
+                    <div class="hero-wrap d-flex align-items-center h-100">
+                        <div class="hero-mask opacity-8"></div>
+                        <div class="hero-bg hero-bg-scroll">
+                            <img src="~/Content/images/login-bg-7.jpg" class="imgbg7" style="max-width: auto; max-height:100%"/>
+                        </div>
+                        <div class="hero-content mx-auto w-100 h-100 d-flex flex-column">
+                            <div class="container">
+                                <div class="row g-0 mt-5">
+                                    <div class="col-11 col-md-10 col-lg-9 mx-auto">
+                                        <h1 class="text-13 text-white fw-600 mb-4">Nuestra experiencia es el mejor respaldo.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de registro-->
+                <div class="col-md-6 col-lg-5 d-flex flex-column align-items-center">
+                    <div class="container pt-4">
+                        <div class="row g-0">
+                            <div class="col-11 col-md-10 col-lg-9 mx-auto">
+                                <div class="logoLogin"> <img src="~/Content/images/logo2.png"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container my-auto py-5">
+                        <div class="row g-0">
+                            <div class="col-11 col-md-10 col-lg-9 mx-auto">
+                                <br>
+                                <br>
+                                <h3 class="text-12 mb-4">Sign Up</h3>
+                                <form id="signupForm" method="post">
+                                    <label class="form-label fw-500" for="fullName">Nombre</label>
+                                    <div class="mb-3 icon-group icon-group-end">
+                                        @Html.EditorFor(model => model.CliNombre, new { htmlAttributes = new { @class = "form-control bg-light border-light", required = "", placeholder = "Ingrese su nombre" } })
+                                        @Html.ValidationMessageFor(model => model.CliNombre, "", new { @class = "text-danger" })
+                                        <br>
+                                    </div>
+                                    <label class="form-label fw-500" for="fullName">Apellido</label>
+                                    <div class="mb-3 icon-group icon-group-end">
+                                        @Html.EditorFor(model => model.CliApellido, new { htmlAttributes = new { @class = "form-control bg-light border-light", required = "", placeholder = "Ingrese sus apellidos" } })
+                                        @Html.ValidationMessageFor(model => model.CliApellido, "", new { @class = "text-danger" })
+                                    </div>
+                                    <br>
+                                    <label class="form-label fw-500" for="fullName">Cédula</label>
+                                    <div class="mb-3 icon-group icon-group-end">
+                                        @Html.EditorFor(model => model.CliCedula, new { htmlAttributes = new { @class = "form-control bg-light border-light", maxlength = "11", required = "", placeholder = "Ingrese su cédula de identidad" } })
+                                        @Html.ValidationMessageFor(model => model.CliCedula, "", new { @class = "text-danger" })
+                                    </div>        
+                                    <br>
+                                    <label class="form-label fw-500" for="fullName">Fecha de Nacimiento</label>
+                                    <div class="mb-3 icon-group icon-group-end">
+                                        @Html.EditorFor(model => model.CliFechnac, new { htmlAttributes = new { @class = "form-control bg-light border-light", type = "date", required = "", placeholder = "Ingrese su fecha de nacimiento" } })
+                                        @Html.ValidationMessageFor(model => model.CliFechnac, "", new { @class = "text-danger" })
+                                    </div>            
+                                    <br>
+                                    <label class="form-label fw-500" for="emailAddress">Sexo</label>
+                                    <div class="mb-3 icon-group icon-group-end">
+                                        <select @Html.EditorFor(model => model.CliSexo, new { htmlAttributes = new { @class = "form-control bg-light border-light", required = "" } }) >
+                                            @Html.ValidationMessageFor(model => model.CliSexo, "", new { @class = "text-danger" })
+                                            <option>-Seleccione una opción-</option>
+                                            <option>Femenino</option>
+                                            <option>Masculino</option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <label class="form-label fw-500" for="loginPassword">Contraseña</label>
+                                    <div class="mb-3 icon-group icon-group-end">
+                                        @Html.EditorFor(model => model.CliPw, new { htmlAttributes = new { @class = "form-control bg-light border-light", type = "password", required = "", placeholder = "Ingrese una contraseña" } })
+                                        @Html.ValidationMessageFor(model => model.CliPw, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-check my-4">
+                                        <input id="agree" name="agree" class="form-check-input" type="checkbox">
+                                        <label class="form-check-label" for="agree">Estoy de acuerdo con los <a href="#">Términos</a> y <a href="#">Condiciones</a>.</label>
+                                    </div>
+                                    <div class="d-grid my-4">
+                                        <button class="btn btn-dark btn-lg" type="submit">Registrarse</button>
+                                    </div>
+                                    <p class="text-2 text-muted text-center">¿Ya tiene una cuenta? <a href="loginClient.html">Iniciar Sesión</a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/js/switcher.min.js"></script>
+    <script src="~/Content/js/theme.js"></script>
+</body>
+</html>

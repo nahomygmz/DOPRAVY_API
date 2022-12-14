@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DOPRAVY.Models.Cliente>
+
+@{
+    ViewBag.Title = "sesionCli";
+}
+
+<h2>sesionCli</h2>
+
+<p>
+    @Html.ActionLink("Create New", "registroCli")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CliCedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CliNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CliApellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CliFechnac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CliSexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CliStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CliPw)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CliCedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CliNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CliApellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CliFechnac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CliSexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CliStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CliPw)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
