@@ -48,6 +48,7 @@ namespace DOPRAVY_API.Controllers
             {
                 var user = _context.Clientes.FirstOrDefault(option => option.CliCedula == cliCedula);
                 if (user == null) return NotFound();
+                if (user.CliStatus == "Inactivo") return BadRequest();
 
                 if(user.CliPw == cliPw)
                 {

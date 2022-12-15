@@ -73,6 +73,7 @@ namespace DOPRAVY_API.Controllers
         public async Task<IActionResult> DeleteEncargo(decimal id)
         {
             var encargo = await _context.Encargos.FindAsync(id);
+            if (encargo.EncStatus == "En curso" || encargo.EncStatus == "Entregado") return BadRequest();
             if (encargo == null)
             {
                 return NotFound();

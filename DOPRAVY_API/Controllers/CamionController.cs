@@ -31,7 +31,7 @@ namespace DOPRAVY_API.Controllers
         public async Task<ActionResult<Camion>> GetCamion(string id)
         {
             var camion = await _context.Camions.FindAsync(id);
-
+            if (camion.CamStatus == "Mantenimiento" || camion.CamStatus == "Inactivo") return BadRequest();
             if (camion == null)
             {
                 return NotFound();
